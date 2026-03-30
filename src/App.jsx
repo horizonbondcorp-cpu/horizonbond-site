@@ -21,10 +21,11 @@ const ventures = [
   {
     name: "Fix Plug",
     desc: "Trusted skilled services for Nigerian homes and businesses. Verified providers. Transparent pricing. Starting in Abuja.",
-    status: "Active — Accepting Early Sign-Ups",
+    status: "Active â Accepting Early Sign-Ups",
     statusColor: C.accentLight,
     cta: "Visit Fix Plug",
     href: "https://fixplug.org",
+    img: "https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
     name: "Belmak Consults",
@@ -33,6 +34,7 @@ const ventures = [
     statusColor: C.gold,
     cta: "Learn More",
     href: "#belmak",
+    img: "https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
     name: "Haven Estates & Suites",
@@ -41,20 +43,22 @@ const ventures = [
     statusColor: C.muted,
     cta: "Register Interest",
     href: "#haven",
+    img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
     name: "Future Ventures",
-    desc: "HorizonBond is always evaluating new sectors and opportunities. If you have an idea, a partnership, or a market worth entering — we are listening.",
+    desc: "HorizonBond is always evaluating new sectors and opportunities. If you have an idea, a partnership, or a market worth entering â we are listening.",
     status: "Open to Proposals",
     statusColor: C.muted,
     cta: "Talk to Us",
     href: "#contact",
+    img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
 ];
 
 const principles = [
   { title: "Credibility First", body: "Every venture we build must earn trust before it earns revenue. We do not launch what we cannot stand behind." },
-  { title: "Operational Discipline", body: "Ideas are not enough. We build with structure, process, and commercial clarity — from the first version to full scale." },
+  { title: "Operational Discipline", body: "Ideas are not enough. We build with structure, process, and commercial clarity â from the first version to full scale." },
   { title: "Premium Standards", body: "Every product, service, and communication that carries the HorizonBond name must meet a professional standard." },
   { title: "Long-Term Thinking", body: "We build for durability. Every decision considers what serves the business five years from now." },
 ];
@@ -77,11 +81,12 @@ function useIsMobile() {
   }, []);
   return m;
 }
+
 function AnnouncementBar() {
   return (
     <div style={{ background: C.bgDark, padding: "10px 24px", textAlign: "center" }}>
       <p style={{ fontFamily: sans, color: C.cream, fontSize: 13, margin: 0, letterSpacing: "0.02em" }}>
-        Fix Plug is now live — our first venture is accepting early sign-ups in Abuja.
+        Fix Plug is now live â our first venture is accepting early sign-ups in Abuja.
       </p>
     </div>
   );
@@ -116,7 +121,7 @@ function Nav({ mobile }) {
           <button onClick={() => setOpen(!open)} style={{
             background: "none", border: "none", fontSize: 24, cursor: "pointer", color: C.text, padding: 4,
           }}>
-            {open ? "\u2715" : "\u2630"}
+            {open ? "â" : "â°"}
           </button>
         ) : (
           <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
@@ -157,7 +162,9 @@ function Hero({ mobile }) {
     <section style={{
       minHeight: mobile ? "70vh" : "80vh",
       display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
-      textAlign: "center", padding: mobile ? "60px 20px 60px" : "100px 24px 80px", background: C.bg,
+      textAlign: "center", padding: mobile ? "60px 20px 60px" : "100px 24px 80px",
+      background: `linear-gradient(rgba(248,246,242,0.92), rgba(248,246,242,0.88)), url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1400')`,
+      backgroundSize: "cover", backgroundPosition: "center",
     }}>
       <h1 style={{
         fontFamily: serif, fontSize: mobile ? 36 : "clamp(42px, 5vw, 64px)",
@@ -170,7 +177,7 @@ function Hero({ mobile }) {
         fontFamily: sans, fontSize: mobile ? 16 : 19, color: C.muted,
         lineHeight: 1.7, maxWidth: 600, margin: "0 0 40px",
       }}>
-        HorizonBond is a multi-venture company developing credible, scalable businesses across selected sectors in Nigeria — starting with skilled services, advisory, and hospitality.
+        HorizonBond is a multi-venture company developing credible, scalable businesses across selected sectors in Nigeria â starting with skilled services, advisory, and hospitality.
       </p>
       <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
         <a href="#ventures" style={{
@@ -190,18 +197,34 @@ function Hero({ mobile }) {
 function About({ mobile }) {
   return (
     <section id="about" style={{ padding: mobile ? "64px 20px" : "100px 24px", background: C.white }}>
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
-        <Label>Who We Are</Label>
-        <Heading>A Company That Builds Companies.</Heading>
-        <Body>
-          HorizonBond is not a single product or a single service. It is a company-building platform — a deliberate system for identifying high-potential sectors, designing credible ventures, and building them with operational discipline and long-term vision.
-        </Body>
-        <Body>
-          Every venture under HorizonBond is held to the same standard: it must be commercially sound, trustworthy in its market, and capable of earning real traction — not just attention.
-        </Body>
-        <Body style={{ color: C.text, fontWeight: 500 }}>
-          We do not chase trends. We build businesses that work.
-        </Body>
+      <div style={{
+        maxWidth: 1000, margin: "0 auto",
+        display: "flex", flexDirection: mobile ? "column" : "row",
+        gap: mobile ? 32 : 60, alignItems: "center",
+      }}>
+        <div style={{ flex: 1 }}>
+          <Label>Who We Are</Label>
+          <Heading>A Company That Builds Companies.</Heading>
+          <Body>
+            HorizonBond is not a single product or a single service. It is a company-building platform â a deliberate system for identifying high-potential sectors, designing credible ventures, and building them with operational discipline and long-term vision.
+          </Body>
+          <Body>
+            Every venture under HorizonBond is held to the same standard: it must be commercially sound, trustworthy in its market, and capable of earning real traction â not just attention.
+          </Body>
+          <Body style={{ color: C.text, fontWeight: 500 }}>
+            We do not chase trends. We build businesses that work.
+          </Body>
+        </div>
+        <div style={{
+          flex: mobile ? "none" : "0 0 380px", width: mobile ? "100%" : 380,
+          borderRadius: 14, overflow: "hidden",
+        }}>
+          <img
+            src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Strategic business planning session"
+            style={{ width: "100%", height: mobile ? 220 : 340, objectFit: "cover", display: "block" }}
+          />
+        </div>
       </div>
     </section>
   );
@@ -245,7 +268,7 @@ function VenturesSection({ mobile }) {
         <Label style={{ textAlign: "center" }}>Our Ventures</Label>
         <Heading style={{ textAlign: "center" }}>Building Across Sectors. One Venture at a Time.</Heading>
         <Body style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 40px" }}>
-          Each HorizonBond venture operates independently within its market — but all are held to the same standard of trust, quality, and execution.
+          Each HorizonBond venture operates independently within its market â but all are held to the same standard of trust, quality, and execution.
         </Body>
         <div style={{
           display: "grid",
@@ -257,36 +280,45 @@ function VenturesSection({ mobile }) {
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                background: C.bg, borderRadius: 14, padding: mobile ? 24 : 32,
+                background: C.bg, borderRadius: 14, overflow: "hidden",
                 border: `1px solid ${C.border}`,
                 display: "flex", flexDirection: "column", justifyContent: "space-between",
-                minHeight: mobile ? "auto" : 240,
+                minHeight: mobile ? "auto" : 320,
                 boxShadow: hovered === i ? "0 6px 24px rgba(0,0,0,0.06)" : "none",
                 transform: hovered === i ? "translateY(-2px)" : "none",
                 transition: "all 0.2s ease",
               }}
             >
               <div>
-                <h3 style={{ fontFamily: sans, fontSize: 19, fontWeight: 700, color: C.text, margin: "0 0 8px" }}>
-                  {v.name}
-                </h3>
-                <span style={{
-                  display: "inline-block", fontFamily: sans, fontSize: 12, fontWeight: 600,
-                  color: v.statusColor, background: `${v.statusColor}14`,
-                  padding: "4px 10px", borderRadius: 20, marginBottom: 14, letterSpacing: "0.02em",
-                }}>
-                  {v.status}
-                </span>
-                <p style={{ fontFamily: sans, fontSize: 15, color: C.muted, lineHeight: 1.65, margin: 0 }}>
-                  {v.desc}
-                </p>
+                <div style={{ width: "100%", height: 160, overflow: "hidden" }}>
+                  <img src={v.img} alt={v.name} style={{
+                    width: "100%", height: "100%", objectFit: "cover", display: "block",
+                  }} />
+                </div>
+                <div style={{ padding: mobile ? "20px 20px 0" : "24px 28px 0" }}>
+                  <h3 style={{ fontFamily: sans, fontSize: 19, fontWeight: 700, color: C.text, margin: "0 0 8px" }}>
+                    {v.name}
+                  </h3>
+                  <span style={{
+                    display: "inline-block", fontFamily: sans, fontSize: 12, fontWeight: 600,
+                    color: v.statusColor, background: `${v.statusColor}14`,
+                    padding: "4px 10px", borderRadius: 20, marginBottom: 14, letterSpacing: "0.02em",
+                  }}>
+                    {v.status}
+                  </span>
+                  <p style={{ fontFamily: sans, fontSize: 15, color: C.muted, lineHeight: 1.65, margin: 0 }}>
+                    {v.desc}
+                  </p>
+                </div>
               </div>
-              <a href={v.href} style={{
-                fontFamily: sans, display: "inline-block", marginTop: 18,
-                fontSize: 14, fontWeight: 600, color: C.accent, textDecoration: "none",
-              }}>
-                {v.cta} →
-              </a>
+              <div style={{ padding: mobile ? "0 20px 20px" : "0 28px 24px" }}>
+                <a href={v.href} style={{
+                  fontFamily: sans, display: "inline-block", marginTop: 18,
+                  fontSize: 14, fontWeight: 600, color: C.accent, textDecoration: "none",
+                }}>
+                  {v.cta} â
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -298,35 +330,52 @@ function VenturesSection({ mobile }) {
 function FeaturedVenture({ mobile }) {
   return (
     <section id="fixplug" style={{ padding: mobile ? "64px 20px" : "100px 24px", background: C.bgForest }}>
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <Label style={{ color: C.gold }}>Featured Venture</Label>
-        <Heading style={{ color: C.white }}>Fix Plug — Our First Venture. Now Live.</Heading>
-        <p style={{
-          fontFamily: sans, fontSize: mobile ? 16 : 17,
-          color: "rgba(255,255,255,0.75)", lineHeight: 1.7, margin: "0 0 14px", maxWidth: 700,
-        }}>
-          Fix Plug is a trusted skilled-services platform connecting Nigerian homes and businesses to verified, professional service providers. It launches in Abuja with four core categories: electrical, plumbing, AC repair, and generator support.
-        </p>
-        <p style={{
-          fontFamily: sans, fontSize: 16, color: "rgba(255,255,255,0.55)",
-          lineHeight: 1.7, margin: "0 0 32px", maxWidth: 700,
-        }}>
-          Fix Plug exists because finding a reliable skilled worker in Nigeria should not feel like a risk. We are building the operating layer that the market has been missing.
-        </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 36 }}>
-          {fpFeatures.map((f, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-              <span style={{ color: C.gold, fontSize: 14, marginTop: 3, flexShrink: 0 }}>✦</span>
-              <span style={{ fontFamily: sans, color: "rgba(255,255,255,0.8)", fontSize: 15, lineHeight: 1.6 }}>{f}</span>
-            </div>
-          ))}
+      <div style={{
+        maxWidth: 1000, margin: "0 auto",
+        display: "flex", flexDirection: mobile ? "column" : "row",
+        gap: mobile ? 32 : 60, alignItems: "center",
+      }}>
+        <div style={{ flex: 1 }}>
+          <Label style={{ color: C.gold }}>Featured Venture</Label>
+          <Heading style={{ color: C.white }}>Fix Plug â Our First Venture. Now Live.</Heading>
+          <p style={{
+            fontFamily: sans, fontSize: mobile ? 16 : 17,
+            color: "rgba(255,255,255,0.75)", lineHeight: 1.7, margin: "0 0 14px", maxWidth: 700,
+          }}>
+            Fix Plug is a trusted skilled-services platform connecting Nigerian homes and businesses to verified, professional service providers. It launches in Abuja with four core categories: electrical, plumbing, AC repair, and generator support.
+          </p>
+          <p style={{
+            fontFamily: sans, fontSize: 16, color: "rgba(255,255,255,0.55)",
+            lineHeight: 1.7, margin: "0 0 32px", maxWidth: 700,
+          }}>
+            Fix Plug exists because finding a reliable skilled worker in Nigeria should not feel like a risk. We are building the operating layer that the market has been missing.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 36 }}>
+            {fpFeatures.map((f, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                <span style={{ color: C.gold, fontSize: 14, marginTop: 3, flexShrink: 0 }}>â¦</span>
+                <span style={{ fontFamily: sans, color: "rgba(255,255,255,0.8)", fontSize: 15, lineHeight: 1.6 }}>{f}</span>
+              </div>
+            ))}
+          </div>
+          <a href="https://fixplug.org" target="_blank" rel="noopener noreferrer" style={{
+            fontFamily: sans, display: "inline-block", background: C.gold, color: C.bgDark,
+            padding: "14px 32px", borderRadius: 8, textDecoration: "none", fontSize: 15, fontWeight: 700,
+          }}>
+            Explore Fix Plug â
+          </a>
         </div>
-        <a href="https://fixplug.org" target="_blank" rel="noopener noreferrer" style={{
-          fontFamily: sans, display: "inline-block", background: C.gold, color: C.bgDark,
-          padding: "14px 32px", borderRadius: 8, textDecoration: "none", fontSize: 15, fontWeight: 700,
+        <div style={{
+          flex: mobile ? "none" : "0 0 340px", width: mobile ? "100%" : 340,
+          borderRadius: 14, overflow: "hidden",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
         }}>
-          Explore Fix Plug →
-        </a>
+          <img
+            src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Professional service provider at work"
+            style={{ width: "100%", height: mobile ? 240 : 400, objectFit: "cover", display: "block" }}
+          />
+        </div>
       </div>
     </section>
   );
@@ -339,10 +388,10 @@ function WhySection({ mobile }) {
         <Label style={{ textAlign: "center" }}>Why Us</Label>
         <Heading style={{ textAlign: "center" }}>Why Build With HorizonBond?</Heading>
         <Body style={{ textAlign: "center" }}>
-          Whether you are a potential customer of one of our ventures, a professional looking to partner, or an investor evaluating what we are building — the answer is the same.
+          Whether you are a potential customer of one of our ventures, a professional looking to partner, or an investor evaluating what we are building â the answer is the same.
         </Body>
         <Body style={{ textAlign: "center" }}>
-          HorizonBond exists to build businesses that people can trust. Not businesses that look impressive on a pitch deck but fall apart in practice. Businesses that work — for customers, for providers, for partners, and for the markets they serve.
+          HorizonBond exists to build businesses that people can trust. Not businesses that look impressive on a pitch deck but fall apart in practice. Businesses that work â for customers, for providers, for partners, and for the markets they serve.
         </Body>
         <Body style={{ textAlign: "center", color: C.text, fontWeight: 500 }}>
           We are early. We are deliberate. And we are building something that lasts.
@@ -360,12 +409,12 @@ function ContactCTA({ mobile }) {
           fontFamily: serif, fontSize: mobile ? 28 : "clamp(30px, 4vw, 42px)",
           fontWeight: 700, color: C.white, lineHeight: 1.15, margin: "0 0 16px", letterSpacing: "-0.02em",
         }}>
-          Let’s Build Something Worth Trusting.
+          Let's Build Something Worth Trusting.
         </h2>
         <p style={{
           fontFamily: sans, fontSize: 17, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, margin: "0 0 36px",
         }}>
-          Whether you want to partner with HorizonBond, invest in a venture, or join one of our teams — we would like to hear from you.
+          Whether you want to partner with HorizonBond, invest in a venture, or join one of our teams â we would like to hear from you.
         </p>
         <a href="mailto:horizonbondcorp@gmail.com" style={{
           fontFamily: sans, display: "inline-block", background: C.white, color: C.bgDark,
@@ -406,7 +455,7 @@ function Footer({ mobile }) {
         ))}
       </div>
       <span style={{ fontFamily: sans, fontSize: 12, color: "rgba(255,255,255,0.25)" }}>
-        © 2025 HorizonBond. All rights reserved.
+        Â© 2026 HorizonBond. All rights reserved.
       </span>
     </footer>
   );
@@ -455,4 +504,3 @@ export default function App() {
     </div>
   );
 }
-
