@@ -24,7 +24,7 @@ const ventures = [
     status: "Active \u2014 Accepting Early Sign-Ups",
     statusColor: C.accentLight,
     cta: "Visit Fix Plug",
-    href: "#fixplug",
+    href: "https://fixplug.org",
   },
   {
     name: "Belmak Consults",
@@ -321,7 +321,7 @@ function FeaturedVenture({ mobile }) {
             </div>
           ))}
         </div>
-        <a href="#" style={{
+        <a href="https://fixplug.org" target="_blank" rel="noopener noreferrer" style={{
           fontFamily: sans, display: "inline-block", background: C.gold, color: C.bgDark,
           padding: "14px 32px", borderRadius: 8, textDecoration: "none", fontSize: 15, fontWeight: 700,
         }}>
@@ -394,10 +394,15 @@ function Footer({ mobile }) {
         HorizonBond
       </span>
       <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
-        {["About", "Ventures", "Fix Plug", "Contact"].map(l => (
-          <a key={l} href={`#${l.toLowerCase().replace(" ", "")}`} style={{
+        {[
+          { label: "About", href: "#about" },
+          { label: "Ventures", href: "#ventures" },
+          { label: "Fix Plug", href: "https://fixplug.org" },
+          { label: "Contact", href: "#contact" },
+        ].map(l => (
+          <a key={l.label} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} style={{
             fontFamily: sans, color: "rgba(255,255,255,0.35)", textDecoration: "none", fontSize: 13,
-          }}>{l}</a>
+          }}>{l.label}</a>
         ))}
       </div>
       <span style={{ fontFamily: sans, fontSize: 12, color: "rgba(255,255,255,0.25)" }}>
