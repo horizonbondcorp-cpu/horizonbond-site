@@ -24,7 +24,7 @@ const ventures = [
     status: "Active — Accepting Early Sign-Ups",
     statusColor: C.accentLight,
     cta: "Visit Fix Plug",
-    href: "https://fixplug.org",
+    href: "https://fixplug.app",
     img: "https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
@@ -358,7 +358,7 @@ function FeaturedVenture({ mobile }) {
               </div>
             ))}
           </div>
-          <a href="https://fixplug.org" target="_blank" rel="noopener noreferrer" style={{
+          <a href="https://fixplug.app" target="_blank" rel="noopener noreferrer" style={{
             fontFamily: sans, display: "inline-block", background: C.gold, color: C.bgDark,
             padding: "14px 32px", borderRadius: 8, textDecoration: "none", fontSize: 15, fontWeight: 700,
           }}>
@@ -446,7 +446,7 @@ function Footer({ mobile }) {
         {[
           { label: "About", href: "#about" },
           { label: "Ventures", href: "#ventures" },
-          { label: "Fix Plug", href: "https://fixplug.org" },
+          { label: "Fix Plug", href: "https://fixplug.app" },
           { label: "Contact", href: "#contact" },
         ].map(l => (
           <a key={l.label} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} style={{
