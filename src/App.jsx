@@ -401,28 +401,111 @@ function WhySection({ mobile }) {
   );
 }
 
-function ContactCTA({ mobile }) {
+function ContactCTA() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const res = await fetch('https://formspree.io/f/mjgpobdl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+    setSubmitting(false);
+  };
+
   return (
-    <section id="contact" style={{ padding: mobile ? "64px 20px" : "100px 24px", background: C.bgDark, textAlign: "center" }}>
-      <div style={{ maxWidth: 600, margin: "0 auto" }}>
+    <section id="contact" style={{ padding: '100px 24px', background: '#1A1A1A', textAlign: 'center' }}>
+      <div style={{ maxWidth: 600, margin: '0 auto' }}>
         <h2 style={{
-          fontFamily: serif, fontSize: mobile ? 28 : "clamp(30px, 4vw, 42px)",
-          fontWeight: 700, color: C.white, lineHeight: 1.15, margin: "0 0 16px", letterSpacing: "-0.02em",
+          fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 700,
+          color: '#FFFFFF', marginBottom: 12
         }}>
-          Let's Build Something Worth Trusting.
+          Let\u2019s Build Something Worth Trusting.
         </h2>
         <p style={{
-          fontFamily: sans, fontSize: 17, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, margin: "0 0 36px",
+          color: '#B0B0B0', fontSize: '1.05rem', lineHeight: 1.7,
+          marginBottom: 36
         }}>
-          Whether you want to partner with HorizonBond, invest in a venture, or join one of our teams — we would like to hear from you.
+          Have a question about our ventures or want to partner with us? Drop us a line.
         </p>
-        <a href="mailto:horizonbondcorp@gmail.com" style={{
-          fontFamily: sans, display: "inline-block", background: C.white, color: C.bgDark,
-          padding: "14px 36px", borderRadius: 8, textDecoration: "none", fontSize: 15, fontWeight: 700,
-        }}>
-          Get in Touch
-        </a>
-        <p style={{ fontFamily: sans, marginTop: 18, fontSize: 14, color: "rgba(255,255,255,0.35)" }}>
+
+        {submitted ? (
+          <div style={{ padding: 40 }}>
+            <h3 style={{ color: '#2D5A3D', fontSize: '1.4rem', marginBottom: 8 }}>Thank you for reaching out.</h3>
+            <p style={{ color: '#B0B0B0' }}>We will get back to you within 48 hours.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
+            <div style={{ marginBottom: 16 }}>
+              <label style={{ display: 'block', color: '#B0B0B0', fontSize: '0.85rem', marginBottom: 6 }}>Your Name</label>
+              <input
+                type="text" name="name" required value={formData.name} onChange={handleChange}
+                style={{
+                  width: '100%', padding: '12px 16px', background: '#2A2A2A', border: '1px solid #444',
+                  borderRadius: 8, color: '#FFF', fontSize: '1rem', outline: 'none', boxSizing: 'border-box'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#B8944F'}
+                onBlur={(e) => e.target.style.borderColor = '#444'}
+              />
+            </div>
+            <div style={{ marginBottom: 16 }}>
+              <label style={{ display: 'block', color: '#B0B0B0', fontSize: '0.85rem', marginBottom: 6 }}>Email Address</label>
+              <input
+                type="email" name="email" required value={formData.email} onChange={handleChange}
+                style={{
+                  width: '100%', padding: '12px 16px', background: '#2A2A2A', border: '1px solid #444',
+                  borderRadius: 8, color: '#FFF', fontSize: '1rem', outline: 'none', boxSizing: 'border-box'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#B8944F'}
+                onBlur={(e) => e.target.style.borderColor = '#444'}
+              />
+            </div>
+            <div style={{ marginBottom: 24 }}>
+              <label style={{ display: 'block', color: '#B0B0B0', fontSize: '0.85rem', marginBottom: 6 }}>Message</label>
+              <textarea
+                name="message" required rows={5} value={formData.message} onChange={handleChange}
+                style={{
+                  width: '100%', padding: '12px 16px', background: '#2A2A2A', border: '1px solid #444',
+                  borderRadius: 8, color: '#FFF', fontSize: '1rem', outline: 'none', resize: 'vertical',
+                  fontFamily: 'inherit', boxSizing: 'border-box'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#B8944F'}
+                onBlur={(e) => e.target.style.borderColor = '#444'}
+              />
+            </div>
+            <button
+              type="submit" disabled={submitting}
+              style={{
+                width: '100%', padding: '14px 32px', background: '#2D5A3D', color: '#FFF',
+                border: 'none', borderRadius: 8, fontSize: '1rem', fontWeight: 600,
+                cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1,
+                transition: 'background 0.3s'
+              }}
+              onMouseEnter={(e) => { if (!submitting) e.target.style.background = '#3A7350' }}
+              onMouseLeave={(e) => { if (!submitting) e.target.style.background = '#2D5A3D' }}
+            >
+              {submitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        )}
+
+        <p style={{ color: '#666', fontSize: '0.85rem', marginTop: 24 }}>
           horizonbondcorp@gmail.com
         </p>
       </div>
