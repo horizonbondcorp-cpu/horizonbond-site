@@ -436,7 +436,7 @@ function ContactCTA() {
           fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 700,
           color: '#FFFFFF', marginBottom: 12
         }}>
-          Let\u2019s Build Something Worth Trusting.
+          Let’s Build Something Worth Trusting.
         </h2>
         <p style={{
           color: '#B0B0B0', fontSize: '1.05rem', lineHeight: 1.7,
