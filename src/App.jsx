@@ -33,7 +33,7 @@ const ventures = [
     status: "In Development",
     statusColor: C.gold,
     cta: "Learn More",
-    href: "#belmak",
+    href: "#contact",
     img: "https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
@@ -42,7 +42,7 @@ const ventures = [
     status: "Coming Soon",
     statusColor: C.muted,
     cta: "Register Interest",
-    href: "#haven",
+    href: "#contact",
     img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
